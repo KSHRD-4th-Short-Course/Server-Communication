@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TableViewSectionHeader" customModule="ServerCommunicationDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qi-Zv-YW2">
+                    <rect key="frame" x="0.0" y="-0.5" width="320" height="53"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QDS-2K-Ifp">
+                            <rect key="frame" x="8" y="9" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="3g3-Xq-FG6"/>
+                                <constraint firstAttribute="height" constant="35" id="XXD-IY-LnO"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBw-0F-xRX">
+                            <rect key="frame" x="51" y="8" width="261" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="kKU-GV-ggm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted: 2016-11-11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPI-6g-nIs">
+                            <rect key="frame" x="51" y="28" width="261" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="cO3-U2-AcB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="QDS-2K-Ifp" firstAttribute="leading" secondItem="6qi-Zv-YW2" secondAttribute="leading" constant="8" id="3cP-aY-aDf"/>
+                        <constraint firstItem="yBw-0F-xRX" firstAttribute="leading" secondItem="QDS-2K-Ifp" secondAttribute="trailing" constant="8" id="Cv3-k1-8Gn"/>
+                        <constraint firstItem="GPI-6g-nIs" firstAttribute="leading" secondItem="QDS-2K-Ifp" secondAttribute="trailing" constant="8" id="Ec7-RE-5ma"/>
+                        <constraint firstItem="QDS-2K-Ifp" firstAttribute="centerY" secondItem="6qi-Zv-YW2" secondAttribute="centerY" id="HSk-uM-UUE"/>
+                        <constraint firstAttribute="trailing" secondItem="yBw-0F-xRX" secondAttribute="trailing" constant="8" id="IGB-Qv-jaZ"/>
+                        <constraint firstItem="yBw-0F-xRX" firstAttribute="top" secondItem="6qi-Zv-YW2" secondAttribute="top" constant="8" id="UXP-0k-YaI"/>
+                        <constraint firstItem="GPI-6g-nIs" firstAttribute="top" secondItem="yBw-0F-xRX" secondAttribute="bottom" constant="2" id="akT-lI-nCa"/>
+                        <constraint firstAttribute="bottom" secondItem="GPI-6g-nIs" secondAttribute="bottom" constant="8" id="cx6-BR-9XK"/>
+                        <constraint firstAttribute="trailing" secondItem="GPI-6g-nIs" secondAttribute="trailing" constant="8" id="kJ2-be-MXb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="6qi-Zv-YW2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9Xq-HD-0bK"/>
+                <constraint firstItem="6qi-Zv-YW2" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="RH2-Oj-doO"/>
+                <constraint firstItem="6qi-Zv-YW2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Sin-Gf-aUl"/>
+                <constraint firstItem="6qi-Zv-YW2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tNW-1V-owb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dateTimeLabel" destination="GPI-6g-nIs" id="cKX-Q2-iqa"/>
+                <outlet property="profileImageView" destination="QDS-2K-Ifp" id="afv-Ri-frc"/>
+                <outlet property="titleLabel" destination="yBw-0F-xRX" id="rA3-LW-R6m"/>
+            </connections>
+            <point key="canvasLocation" x="-221" y="-159"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="google_logo" width="36" height="36"/>
+    </resources>
+</document>
