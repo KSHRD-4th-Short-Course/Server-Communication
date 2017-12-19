@@ -138,6 +138,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="fbx-eZ-nTu">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="cwp-mL-R0D">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R7H-TY-QVz">
+                                <rect key="frame" x="16" y="9.5" width="21" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="logout"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="bsM-PS-hCI" eventType="touchUpInside" id="TFn-zi-uc1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sJD-gk-If7">
                             <connections>
                                 <segue destination="gta-i3-KEm" kind="show" identifier="showEdit" id="2cD-Kc-q3z"/>
@@ -461,6 +471,7 @@
     <resources>
         <image name="cloud-computing" width="128" height="128"/>
         <image name="favorite" width="25" height="25"/>
+        <image name="logout" width="21" height="25"/>
         <image name="noimage_thumbnail" width="240" height="184"/>
     </resources>
 </document>

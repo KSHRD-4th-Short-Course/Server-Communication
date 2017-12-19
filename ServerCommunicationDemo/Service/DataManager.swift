@@ -9,10 +9,11 @@
 import Foundation
 
 struct DataManager {
-    struct Url {
+    struct URL {
         // Define url
         static let BASE = "http://localhost:8080/AMS_API/v1/api/"
         static let AUTH = BASE + "user/authentication"
+        static let AUTH_WITH_FACEBOOK = BASE + "user/authentication_with_facebook"
         static let USER = BASE + "user"
         static let ARTICLE = BASE + "articles"
         static let FILE = BASE + "uploadfile/single"

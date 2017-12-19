@@ -12,6 +12,8 @@ import SwiftyJSON
 import Kingfisher
 import NVActivityIndicatorView
 import SCLAlertView
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class HomeTableViewController: UITableViewController, NVActivityIndicatorViewable {
     
@@ -74,6 +76,13 @@ class HomeTableViewController: UITableViewController, NVActivityIndicatorViewabl
         }
         
         service.getData(pageNumber: pageNumber)
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        self.dismiss(animated: true) {
+            UserDefaults.standard.removeObject(forKey: "FacebookID")
+            FBSDKLoginManager().logOut()
+        }
     }
 }
 

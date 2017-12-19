@@ -29,7 +29,7 @@ class ArticleService {
     var delegate: ArticleServiceDelegate?
     
     func getData(pageNumber: Int) {
-        Alamofire.request(DataManager.Url.ARTICLE, parameters: ["page" : pageNumber, "limit" : 5], headers: DataManager.HEADERS)
+        Alamofire.request(DataManager.URL.ARTICLE, parameters: ["page" : pageNumber, "limit" : 5], headers: DataManager.HEADERS)
             .responseJSON { (response) in
                 
                 switch response.result {
@@ -57,10 +57,9 @@ class ArticleService {
     }
     
     func getArticle(by id: String) {
-        print("\(DataManager.Url.ARTICLE)/\(id)")
         
         // request request book
-        Alamofire.request("\(DataManager.Url.ARTICLE)/\(id)",
+        Alamofire.request("\(DataManager.URL.ARTICLE)/\(id)",
             method: .get,
             headers: DataManager.HEADERS).responseJSON(completionHandler: { (response) in
                 
@@ -88,7 +87,7 @@ class ArticleService {
     
     func addArticle(paramaters: [String: Any]) {
         // request
-        Alamofire.request(DataManager.Url.ARTICLE,
+        Alamofire.request(DataManager.URL.ARTICLE,
                           method: .post,
                           parameters: paramaters,
                           encoding: JSONEncoding.default,
@@ -117,7 +116,7 @@ class ArticleService {
     
     func updateArticle(with id: String, paramaters: [String: Any]) {
         // request
-        Alamofire.request("\(DataManager.Url.ARTICLE)/\(id)",
+        Alamofire.request("\(DataManager.URL.ARTICLE)/\(id)",
             method: .put,
             parameters: paramaters,
             encoding: JSONEncoding.default,
@@ -145,7 +144,7 @@ class ArticleService {
     }
     
     func deleteArticle(with id: String, completion: @escaping (Error?) -> ()) {
-        Alamofire.request("\(DataManager.Url.ARTICLE)/\(id)", method: .delete, headers: DataManager.HEADERS).responseJSON { (response) in
+        Alamofire.request("\(DataManager.URL.ARTICLE)/\(id)", method: .delete, headers: DataManager.HEADERS).responseJSON { (response) in
             switch response.result {
             case.success(let value):
                 
@@ -173,7 +172,7 @@ class ArticleService {
          */
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(file, withName: "file", fileName: ".jpg",mimeType: "image/jpeg") // append image
-        }, to: DataManager.Url.FILE,
+        }, to: DataManager.URL.FILE,
            method: .post,
            headers:  DataManager.HEADERS,
            encodingCompletion: { (encodingResult) in

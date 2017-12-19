@@ -51,9 +51,8 @@ class SignUpTableViewController: UITableViewController, NVActivityIndicatorViewa
                           "format" : "json"]
         // image
         let files = ["photo" : UIImageJPEGRepresentation(self.profileImageView.image!, 1)!]
-        let service = UserService()
         
-        service.singup(paramaters: paramaters, files: files) { (response, error) in
+        UserService.shared.singup(paramaters: paramaters, files: files) { (response, error) in
             // show other NVActivityIndicator
             self.stopAnimating()
             

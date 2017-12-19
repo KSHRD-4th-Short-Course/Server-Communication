@@ -53,10 +53,16 @@ class AddEditInfoTableViewController: UITableViewController, UIImagePickerContro
             
             if let error = error { SCLAlertView().showError("Error", subTitle: error.localizedDescription); return }
 
+            var authorId = 0
+            
+            if let facebookId = UserDefaults.standard.string(forKey: "FacebookID") {
+                authorId = Int(facebookId) ?? 0
+            }
+            
             let paramaters = [
                 "title": self.titleLabel.text!,
                 "description": self.descriptionLabel.text!,
-                "author_id": 666, // load user id from user default
+                "author_id": authorId, // load user id from user default
                 "category_id": self.categorySegment.selectedSegmentIndex + 1,
                 "status": "1",
                 "image": fileUrl ?? ""

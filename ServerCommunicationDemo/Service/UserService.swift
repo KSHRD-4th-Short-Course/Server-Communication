@@ -12,6 +12,10 @@ import Alamofire
 
 class UserService {
     
+    private init(){}
+    
+    static let shared: UserService = UserService()
+    
     func singup(paramaters: [String: String], files: [String:Data], completion: @escaping (DataResponse<Any>?, Error?)->()) {
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -25,7 +29,7 @@ class UserService {
                 multipartFormData.append(value, withName: key, fileName: ".jpg",mimeType: "image/jpeg")
             }
             
-        }, to: DataManager.Url.USER,
+        }, to: DataManager.URL.USER,
            method: .post,
            headers:  DataManager.HEADERS,
            encodingCompletion: { (encodingResult) in
@@ -43,7 +47,21 @@ class UserService {
     }
     
     func signin(paramaters: [String: Any], completion: @escaping (DataResponse<Any>?, Error?)->()) {
-        Alamofire.request(DataManager.Url.AUTH, method: .post, parameters: paramaters, encoding: JSONEncoding.default, headers: DataManager.HEADERS)
+        Alamofire.request(DataManager.URL.AUTH, method: .post, parameters: paramaters, encoding: JSONEncoding.default, headers: DataManager.HEADERS)
+            // Response from server
+            .responseJSON { (response) in
+                switch response.result {
+                case .success :
+                    completion(response, nil)
+                case .failure(let encodingError):
+                    completion(nil, encodingError)
+                    
+                }
+        }
+    }
+    
+    func signinWithFacebook(paramaters: [String: Any], completion: @escaping (DataResponse<Any>?, Error?)->()) {
+        Alamofire.request(DataManager.URL.AUTH_WITH_FACEBOOK, method: .post, parameters: paramaters, encoding: JSONEncoding.default, headers: DataManager.HEADERS)
             // Response from server
             .responseJSON { (response) in
                 switch response.result {
