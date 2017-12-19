@@ -55,8 +55,8 @@ class AddEditInfoTableViewController: UITableViewController, UIImagePickerContro
 
             var authorId = 0
             
-            if let facebookId = UserDefaults.standard.string(forKey: "FacebookID") {
-                authorId = Int(facebookId) ?? 0
+            if let UserID = UserDefaults.standard.string(forKey: "UserID") {
+                authorId = Int(UserID) ?? 0
             }
             
             let paramaters = [

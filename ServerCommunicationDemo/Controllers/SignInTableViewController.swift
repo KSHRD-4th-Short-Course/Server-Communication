@@ -27,7 +27,7 @@ class SignInTableViewController: UITableViewController {
             // User is logged in, do work such as go to next view controller.
         }
         
-        if (UserDefaults.standard.string(forKey: "FacebookID") != nil) {
+        if (UserDefaults.standard.string(forKey: "UserID") != nil) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateInitialViewController()
             self.present(viewController!, animated: false, completion: nil)
@@ -52,27 +52,30 @@ class SignInTableViewController: UITableViewController {
             
             // check response from server
             if let value = response?.result.value {
-                
                 let json = JSON(value)
-
-                if let code = json["code"].int {
-                    if code == 2222 {
-                        // Create storyboard by name
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        
-                        // Create view controller object by InitialViewController
-                        // let vc = storyboard.instantiateInitialViewController()
-                        
-                        // Create view controller object by ViewController Identifier
-                        let vc = storyboard.instantiateViewController(withIdentifier: "RootStorybaordID")
-                        
-                        // open view controller
-                        self.present(vc, animated: true, completion: nil)
-                    }else {
-                        SCLAlertView().showError("Error", subTitle: json["message"].stringValue)
-                    }
+                
+                if let code = json["code"].int, code == 2222, let id = json["data"]["id"].int {
+                    UserDefaults.standard.set("\(id)", forKey: "UserID")
+                }else {
+                    SCLAlertView().showError("Error", subTitle: json["message"].stringValue)
+                    return
                 }
+            }else {
+                SCLAlertView().showError("Error", subTitle: "Server error")
+                return
             }
+            
+            // Create storyboard by name
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            // Create view controller object by InitialViewController
+            // let vc = storyboard.instantiateInitialViewController()
+            
+            // Create view controller object by ViewController Identifier
+            let vc = storyboard.instantiateViewController(withIdentifier: "RootStorybaordID")
+            
+            // open view controller
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -94,6 +97,7 @@ class SignInTableViewController: UITableViewController {
                 // Logged in
                 if (result?.grantedPermissions.contains("public_profile"))!{
                     if let token = FBSDKAccessToken.current(){
+                        print(token.description)
                         self.fetchProfile()
                     }
                 }
@@ -140,7 +144,7 @@ class SignInTableViewController: UITableViewController {
                     let json = JSON(value)
                     
                     if let code = json["code"].int, code == 2222, let id = json["data"]["id"].int {
-                        UserDefaults.standard.set("\(id)", forKey: "FacebookID")
+                        UserDefaults.standard.set("\(id)", forKey: "UserID")
                     }else {
                         SCLAlertView().showError("Error", subTitle: json["message"].stringValue)
                         return

@@ -80,7 +80,7 @@ class HomeTableViewController: UITableViewController, NVActivityIndicatorViewabl
     
     @IBAction func logoutAction(_ sender: Any) {
         self.dismiss(animated: true) {
-            UserDefaults.standard.removeObject(forKey: "FacebookID")
+            UserDefaults.standard.removeObject(forKey: "UserID")
             FBSDKLoginManager().logOut()
         }
     }
